@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>⠃⠁⠙ ⠃⠗⠁⠊⠇⠇⠑</title>
+</head>
+<body>
+    <div class="bend">
+        <h1>⠓⠑⠇⠇⠕⠠ ⠁⠝⠙ ⠺⠑⠇⠉⠕⠍⠑ ⠞⠕ ⠃⠁⠙ ⠃⠗⠁⠊⠇⠇⠑</h1>
+        <p>⠞⠓⠊⠎ ⠊⠎ ⠁ ⠺⠑⠃⠎⠊⠞⠑ ⠞⠓⠁⠞ ⠉⠁⠝ ⠞⠗⠥⠏⠃ ⠽⠕⠥⠗ ⠞⠑⠭⠞ ⠊⠝⠞⠕ ⠃⠗⠁⠊⠇⠇⠑⠨ <br>  ⠊⠞ ⠕⠝⠇⠽ ⠺⠕⠗⠅⠎ ⠎⠕⠍⠑⠞⠊⠍⠑⠎ ⠁⠝⠙ ⠺⠊⠇⠇ ⠚⠥⠎⠞ ⠑⠗⠁⠎⠑ ⠽⠕⠥⠗ ⠍⠑⠎⠎⠁⠛⠑ ⠍⠕⠎⠞ ⠕⠋ ⠞⠓⠑ ⠞⠊⠍⠑ ⠞⠓⠕⠥⠛⠓⠨<br> ⠛⠕⠕⠙⠀⠇⠥⠉⠅ ⠽⠕⠥'⠗⠑ ⠛⠕⠝⠝⠁ ⠝⠑⠑⠙ ⠊⠞⠨</p>
+        <textarea name="comment" id="comment" cols="30" rows="10">comment</textarea>
+        <br>
+        <button id="btn">post</button>
+        <div id="messages">
+
+        </div>
+    </div>
+</body>
+<script>
+    BRAILLE_MAP = {
+    ' ': '⠀',
+    '!': '⠮',
+    '"': '⠐',
+    '#': '⠼',
+    '$': '⠫',
+    '%': '⠩',
+    '&': '⠯',
+    '': '⠄',
+    '(': '⠷',
+    ')': '⠾',
+    '*': '⠡',
+    '+': '⠬',
+    ',': '⠠',
+    '-': '⠤',
+    '.': '⠨',
+    '/': '⠌',
+    '0': '⠴',
+    '1': '⠂',
+    '2': '⠆',
+    '3': '⠒',
+    '4': '⠲',
+    '5': '⠢',
+    '6': '⠖',
+    '7': '⠶',
+    '8': '⠦',
+    '9': '⠔',
+    ':': '⠱',
+    ';': '⠰',
+    '<': '⠣',
+    '=': '⠿',
+    '>': '⠜',
+    '?': '⠹',
+    '@': '⠈',
+    'a': '⠁',
+    'b': '⠃',
+    'c': '⠉',
+    'd': '⠙',
+    'e': '⠑',
+    'f': '⠋',
+    'g': '⠛',
+    'h': '⠓',
+    'i': '⠊',
+    'j': '⠚',
+    'k': '⠅',
+    'l': '⠇',
+    'm': '⠍',
+    'n': '⠝',
+    'o': '⠕',
+    'p': '⠏',
+    'q': '⠟',
+    'r': '⠗',
+    's': '⠎',
+    't': '⠞',
+    'u': '⠥',
+    'v': '⠧',
+    'w': '⠺',
+    'x': '⠭',
+    'y': '⠽',
+    'z': '⠵',
+    'A': '⠁',
+    'B': '⠃',
+    'C': '⠉',
+    'D': '⠙',
+    'E': '⠑',
+    'F': '⠋',
+    'G': '⠛',
+    'H': '⠓',
+    'I': '⠊',
+    'J': '⠚',
+    'K': '⠅',
+    'L': '⠇',
+    'M': '⠍',
+    'N': '⠝',
+    'O': '⠕',
+    'P': '⠏',
+    'Q': '⠟',
+    'R': '⠗',
+    'S': '⠎',
+    'T': '⠞',
+    'U': '⠥',
+    'V': '⠧',
+    'W': '⠺',
+    'X': '⠭',
+    'Y': '⠽',
+    'Z': '⠵',
+    '[': '⠪',
+    '\\': '⠳',
+    ']': '⠻',
+    '^': '⠘',
+    '_': '⠸',
+}
+const post = () => {
+
+    const check = Math.random()*9
+    if (check> 6) {
+        let text =  document.getElementById('comment').value
+
+        text = [...text].map(x => BRAILLE_MAP[x]).join("")
+
+        console.log(text)
+
+        const message=`<div id="post">
+        <h1>${text}</h1>
+        </div>`
+
+        document.getElementById('messages').insertAdjacentHTML('beforeend',message)
+
+    }
+
+    document.getElementById('comment').value = ""
+
+}
+
+document.getElementById('btn').addEventListener('click', post)
+</script>
+</html>
